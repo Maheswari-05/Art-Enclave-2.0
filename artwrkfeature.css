@@ -1,0 +1,140 @@
+/* Reset & Font Setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Black background */
+    color: white;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #f2808a; /* Pink background */
+    position: relative;
+}
+
+.gallery-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white; /* Change title color for contrast */
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    animation: neon-glow 2s infinite alternate; /* Neon glow animation */
+}
+
+/* Filters in the Header */
+.filters {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.filter-option, .sort-option {
+    position: relative;
+}
+
+.filters select {
+    padding: 10px;
+    background-color: #fff; /* White background for dropdowns */
+    border: none;
+    color: black; /* Text color for contrast */
+    font-size: 1rem;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.filters select:hover {
+    background-color: #f0c0c0; /* Light pink on hover */
+}
+
+/* Icons */
+.filters i {
+    color: white; /* Icon color */
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Gallery Section */
+.gallery-section {
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.artwork-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four artworks in a row */
+    gap: 20px;
+}
+
+.artwork-card {
+    background-color: #222; /* Dark gray for modern look */
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px #f2808a; /* Neon box shadow */
+}
+
+.artwork-card:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+    box-shadow: 0 0 20px #f2808a, 0 0 30px #f2808a; /* Stronger neon glow on hover */
+}
+
+.artwork-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.artwork-title {
+    font-size: 1.2rem;
+    color: #f2808a; /* Neon pink title */
+    margin-bottom: 5px;
+}
+
+.artist-name {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.artwork-price {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.view-details-btn {
+    padding: 10px 20px;
+    background-color: #f2808a; /* Neon pink button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px #f2808a; /* Neon glow */
+}
+
+.view-details-btn:hover {
+    background-color: #e8717a; /* Darker pink on hover */
+    box-shadow: 0 0 20px #f2808a, 0 0 30px #f2808a; /* Stronger glow on hover */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #141414; /* Match header color */
+    color: white;
+    font-size: 0.9rem;
+}

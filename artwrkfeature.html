@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Enclave</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: white;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #f2808a;
+            position: relative;
+            width: 100%; /* Changed to 100% */
+        }
+
+        .gallery-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+        }
+
+        .gallery-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .filters {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .filter-option, .sort-option {
+            position: relative;
+        }
+
+        .filters select {
+            padding: 8px 25px 8px 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: none;
+            color: black;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .filters i {
+            color: white;
+            font-size: 1rem;
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .gallery-section {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .artwork-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .artwork-card {
+            background-color: #222;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 10px rgba(242, 128, 138, 0.3);
+        }
+
+        .artwork-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(242, 128, 138, 0.5);
+        }
+
+        .artwork-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .artwork-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #f2808a;
+            margin-bottom: 5px;
+        }
+
+        .artist-name {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .artwork-price {
+            font-size: 1rem;
+            color: #fff;
+            margin: 8px 0;
+        }
+
+        .view-details-btn {
+            padding: 8px 16px;
+            background-color: #f2808a;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .view-details-btn:hover {
+            background-color: #e8717a;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #141414;
+            color: white;
+            font-size: 0.8rem;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="gallery-title">Art Enclave</h1>
+        <p class="gallery-subtitle">Where Creativity Meets Collection</p>
+        <div class="filters">
+            <div class="filter-option">
+                <select id="filter-category">
+                    <option value="">Category</option>
+                    <option value="painting">Painting</option>
+                    <option value="sculpture">Sculpture</option>
+                    <option value="digital">Digital Art</option>
+                </select>
+                <i class="fas fa-filter"></i>
+            </div>
+            <div class="sort-option">
+                <select id="sort-options">
+                    <option value="">Sort</option>
+                    <option value="price">Price</option>
+                    <option value="newest">Newest</option>
+                    <option value="popularity">Popular</option>
+                </select>
+                <i class="fas fa-sort"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="gallery-section">
+        <div class="artwork-grid">
+            <!-- Using placeholder images for demonstration -->
+            <div class="artwork-card">
+                <img src="feature1.png" alt="Artwork" class="artwork-img">
+                <h3 class="artwork-title">Sunset Dreams</h3>
+                <p class="artist-name">by Sarah Doe</p>
+                <p class="artwork-price">$500</p>
+                <button class="view-details-btn" onclick="window.location.href='artdesc.html'">View Details</button>
+            </div>
+            <div class="artwork-card">
+                <img src="feature2.png" alt="Artwork" class="artwork-img">
+                <h3 class="artwork-title">Ocean Waves</h3>
+                <p class="artist-name">by John Smith</p>
+                <p class="artwork-price">$300</p>
+                <button class="view-details-btn" onclick="window.location.href='artdesc2.html'">View Details</button>
+            </div>
+            <div class="artwork-card">
+                <img src="feature3.png" alt="Artwork" class="artwork-img">
+                <h3 class="artwork-title">Mountain Peaks</h3>
+                <p class="artist-name">by Emily Davis</p>
+                <p class="artwork-price">$450</p>
+                <button class="view-details-btn"onclick="window.location.href='artdesc2.html'">View Details</button>
+            </div>
+            <div class="artwork-card">
+                <img src="feature4.png" alt="Artwork" class="artwork-img">
+                <h3 class="artwork-title">Starry Night</h3>
+                <p class="artist-name">by Alex Brown</p>
+                <p class="artwork-price">$600</p>
+                <button class="view-details-btn" onclick="window.location.href='artdesc.html'">View Details</button>
+            </div>
+            <div class="artwork-card">
+                <img src="feature5.png" alt="Artwork" class="artwork-img">
+                <h3 class="artwork-title">The Night Watch</h3>
+                <p class="artist-name">by Shintu Zen</p>
+                <p class="artwork-price">$60</p>
+                <button class="view-details-btn" onclick="window.location.href='artdesc2.html'">View Details</button>
+            </div>
+            <div class="artwork-card">
+                <img src="gallery6.png" alt="Artwork" class="artwork-img">
+                <h3 class="artwork-title">Starry Night</h3>
+                <p class="artist-name">by Alex Brown</p>
+                <p class="artwork-price">$600</p>
+                <button class="view-details-btn"onclick="window.location.href='artdesc.html'">View Details</button>
+            </div>
+            <div class="artwork-card">
+                <img src="gallery7.png" alt="Artwork" class="artwork-img">
+                <h3 class="artwork-title">Starry Night</h3>
+                <p class="artist-name">by Alex Brown</p>
+                <p class="artwork-price">$600</p>
+                <button class="view-details-btn"onclick="window.location.href='artdesc2.html'">View Details</button>
+            </div>
+            <div class="artwork-card">
+                <img src="gallery5.png" alt="Artwork" class="artwork-img">
+                <h3 class="artwork-title">Starry Night</h3>
+                <p class="artist-name">by Alex Brown</p>
+                <p class="artwork-price">$600</p>
+                <button class="view-details-btn"onclick="window.location.href='artdesc.html'">View Details</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Art Enclave. All rights reserved.</p>
+    </footer>
+</body>
+</html>

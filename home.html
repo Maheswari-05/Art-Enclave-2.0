@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
+   
+    <link rel="stylesheet" href="home.css">
+    <script src="home.js"></script>
+</head>
+<body>
+<header>
+    <nav>
+      <img src="logo" alt="logo" class="logo">
+      <div class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#about-section">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#footer">Contact</a>
+      </div>
+    </nav>
+  
+  </header>
+  
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="text-section">
+        <h1 class="art">WELCOME TO ART ENCLAVE</h1>
+        <p>Where Creativity Knows No Boundaries.Unleash your imagination and step into a world where art meets innovation.Discover breathtaking masterpieces, connect with creators,<br>  and fuel your passion for art like never before.</p>
+        <div class="cta-buttons">
+          <button class="artist-join" onclick="window.location.href='login.html'"><span>JOIN AS ARTIST</span><img  class="but" src=artist.png></button>
+          <button class="artist-join" onclick="window.location.href='loginartlover.html'"><span>JOIN AS ART LOVER</span><img class="but"src=artlover.png></button>
+        </div>
+      </div>
+      <div class="illustration-section">
+        <img id="dynamic-illustration" src="two.png" alt="art illustration">
+      </div>
+    </div>
+  </section>
+
+  <!--About session-->
+  <section class="about-section" id="about-section">
+    <div class="about-text">
+        <h1 >ABOUT</h1>
+        <p>Art Enclave is a vibrant platform where artists and art enthusiasts unite, bridging the gap between creativity and community. Our dynamic space fosters collaboration, inspiration, and growth, providing a unique environment where artistic visions thrive.</p>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <div class="glowing-image-container">
+                <img src="artist.png" alt="For Artists">
+            </div>
+            <div class="content">
+                <h2>For Artists:</h2>
+                <h3>Unleash Your Talent</h3>
+                <p>Step into a world where your art shines! Showcase your masterpieces, reach a global audience, and connect with other passionate artists. Stay updated on exhibitions and events to elevate your career. Your journey starts now!</p>
+                <a href="#" class="cta-button">Join Now</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="glowing-image-container">
+                <img src="artlover.png" alt="For Art Lovers">
+            </div>
+            <div class="content">
+                <h2>For Art Lovers:</h2>
+                <h3>Discover, Connect, Collect</h3>
+                <p>Immerse yourself in breathtaking art from around the world. Find your next inspiration or addition to your collection. Stay in the loop with upcoming exhibitions and events. Your next favorite piece is just a click away!</p>
+                <a href="#" class="cta-button">Join Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <!-- Gallery Preview -->
+ <!-- Gallery Preview -->
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .gallery {
+        font-family: 'Poppins', sans-serif;
+        background: #fbdde2; /* Light pink background */
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+    }
+
+    .gallery-title {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 3rem;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        animation: neonText 1.5s infinite alternate;
+    }
+
+    .carousel-container {
+        width: 100%;
+        max-width: 1400px;
+        height: 500px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 60px;
+    }
+
+    .carousel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: transform 0.5s ease;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .carousel-item {
+        position: relative;
+        width: 300px;
+        height: 400px;
+        transition: all 0.5s ease;
+        transform: scale(0.8);
+        opacity: 0.8;
+        flex-shrink: 0;
+        background: black; /* Solid black background */
+        padding: 10px;
+        border-radius: 15px;
+        border: 2px solid transparent; /* Border for hover animation */
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    /* Remove blur effect */
+    .carousel-item.active {
+        transform: scale(1.2);
+        opacity: 1;
+        z-index: 2;
+    }
+
+    /* Border animation on hover */
+    .carousel-item:hover {
+        border-color: #f2808a; /* Cyan border color */
+        box-shadow: 0 0 20px rgba(210, 65, 130, 0.879); /* Slight glow */
+        transition: border-color 0.3s ease-in-out;
+    }
+
+    /* Ensure visibility of text on hover */
+    .item-details {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 1rem;
+        background: rgba(0, 0, 0, 0.9); /* Dark background for visibility */
+        backdrop-filter: none; /* No blur */
+        border-radius: 0 0 15px 15px;
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        color: #fff;
+    }
+
+    .carousel-item:hover .item-details {
+        opacity: 1; /* Show text on hover */
+        transform: translateY(0);
+    }
+
+    .item-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #f2808a; /* Cyan text color */
+    }
+
+    .item-description {
+        font-size: 0.9rem;
+        color: #ffffff;
+    }
+
+    .nav-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: #f2808a;
+        font-size: 2rem;
+        padding: 1rem;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        z-index: 3;
+    }
+
+    .nav-button:hover {
+        background: #fff;
+        box-shadow: 0 0 20px rgba(239, 43, 190, 0.721);
+    }
+
+    #prevBtn {
+        left: 20px;
+    }
+
+    #nextBtn {
+        right: 20px;
+    }
+
+    @keyframes neonText {
+        from {
+            text-shadow: 0 0 10px #fff,
+                         0 0 20px #fff,
+                         0 0 30px #f330af,
+                         0 0 40px #f330af,
+                         0 0 50px #f330af;
+        }
+        to {
+            text-shadow: 0 0 5px #fff,
+                         0 0 10px #fff,
+                         0 0 15px #f2808a,
+                         0 0 20px #f2808a,
+                         0 0 25px #f2808a;
+        }
+    }
+</style>
+
+<section class="gallery" id="gallery">
+    <h1 class="gallery-title">Art Enclave Gallery</h1>
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <!-- Cloned last item for seamless loop -->
+            <div class="carousel-item">
+                <img src="gallery1.png" alt="Virtual Visions">
+                <div class="item-details">
+                    <h3 class="item-title">Virtual Visions</h3>
+                    <p class="item-description">AI-generated artwork curated by David Chen</p>
+                </div>
+            </div>
+            <!-- Original carousel items -->
+            <div class="carousel-item">
+                <img src="galler2.png" alt="Abstract Neon Dreams">
+                <div class="item-details">
+                    <h3 class="item-title">Abstract Neon Dreams</h3>
+                    <p class="item-description">A vibrant exploration of color and light by Sarah Chen</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="gallery3.png" alt="Digital Dystopia">
+                <div class="item-details">
+                    <h3 class="item-title">Digital Dystopia</h3>
+                    <p class="item-description">Cyberpunk-inspired digital art by Marcus Rodriguez</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="gallery6.png" alt="Ethereal Landscapes">
+                <div class="item-details">
+                    <h3 class="item-title">Ethereal Landscapes</h3>
+                    <p class="item-description">Surreal nature photography by Emma Thompson</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="gallery5.png" alt="Neon Noir">
+                <div class="item-details">
+                    <h3 class="item-title">Neon Noir</h3>
+                    <p class="item-description">Contemporary photography with a cyberpunk twist by Alex Kim</p>
+                </div>
+            </div>
+            <!-- Cloned first item for seamless loop -->
+            <div class="carousel-item">
+                <img src="gallery7.png" alt="Abstract Neon Dreams">
+                <div class="item-details">
+                    <h3 class="item-title">Abstract Neon Dreams</h3>
+                    <p class="item-description">A vibrant exploration of color and light by Sarah Chen</p>
+                </div>
+            </div>
+        </div>
+        <button class="nav-button" id="prevBtn">←</button>
+        <button class="nav-button" id="nextBtn">→</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.carousel');
+            const items = document.querySelectorAll('.carousel-item');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            let currentIndex = 1; // Start at the second item for infinite scroll
+            let autoPlay;
+
+            function updateCarousel(transition = true) {
+                if (transition) {
+                    carousel.style.transition = 'transform 0.5s ease';
+                } else {
+                    carousel.style.transition = 'none';
+                }
+
+                const itemWidth = items[0].offsetWidth + 20; // Calculate dynamic width with gap
+                const offset = -currentIndex * itemWidth;
+                carousel.style.transform = `translateX(${offset}px)`;
+            }
+
+            function handleLoop() {
+                if (currentIndex === 0) {
+                    // Jump to the second-to-last item
+                    currentIndex = items.length - 2;
+                    updateCarousel(false); // Skip transition
+                } else if (currentIndex === items.length - 1) {
+                    // Jump to the second item for smooth looping
+                    currentIndex = 1;
+                    updateCarousel(false); // Skip transition
+                }
+            }
+
+            function next() {
+                currentIndex++;
+                updateCarousel();
+                handleLoop();
+            }
+
+            function prev() {
+                currentIndex--;
+                updateCarousel();
+                handleLoop();
+            }
+
+            nextBtn.addEventListener('click', next);
+            prevBtn.addEventListener('click', prev);
+
+            // Automatic sliding
+            function startAutoPlay() {
+                autoPlay = setInterval(next, 3000); // Change image every 3 seconds
+            }
+
+            function stopAutoPlay() {
+                clearInterval(autoPlay);
+            }
+
+            carousel.addEventListener('mouseenter', stopAutoPlay);
+            carousel.addEventListener('mouseleave', startAutoPlay);
+
+            // Initial call to set the position
+            updateCarousel();
+            startAutoPlay();
+        });
+    </script>
+</section>
+
+<!--testimonial-->
+
+<section class="testimonials" id="testimonials">
+    <h2 class="abt">What People Are Saying</h2>
+    <div class="testimonial-section">
+        <div class="testimonial">
+            <p class="testimonial-text">"Art Enclave has connected me to an incredible community of art lovers!"</p>
+            <div class="testimonial-author">
+                <img src="profile.png" alt="Artist 1" class="author-avatar">
+                <div class="author-info">
+                    <span class="author-name">Ria Sen</span>
+                    <span class="author-title">Professional Artist</span>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial">
+            <p class="testimonial-text">"I found my favorite piece of art on this platform."</p>
+            <div class="testimonial-author">
+                <img src="man.png" alt="Art Lover 1" class="author-avatar">
+                <div class="author-info">
+                    <span class="author-name">Prag Ujjain</span>
+                    <span class="author-title">Art Enthusiast</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer" id="footer">
+    <div class="footer-content">
+        <div class="footer-links">
+            <a href="#privacy-policy">Privacy Policy</a>
+            <a href="#terms-of-service">Terms of Service</a>
+        </div>
+        <div class="contact-info">
+            <p>Email: info@artenclave.com</p>
+            <p>Phone: 123-456-7890</p>
+        </div>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+        <p>&copy; 2024 Art Enclave. All rights reserved.</p>
+    </div>
+</footer>
+
+
